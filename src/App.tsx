@@ -11,14 +11,14 @@ import AIKnowledge from "./pages/AIKnowledge";
 import AIKnowledgeDetail from "./pages/AIKnowledgeDetail";
 import AIApplication from "./pages/AIApplication";
 import AIDaily from "./pages/AIDaily";
-import AITutorial from "./pages/AITutorial";
 import AINavigation from "./pages/AINavigation";
-import AIPrompts from "./pages/AIPrompts";
 import AIModel from "./pages/AIModel";
-import KnowledgePlanet from "./pages/KnowledgePlanet";
 import AITimeline from "./pages/AITimeline";
 import AIBenchmark from "./pages/AIBenchmark";
+import XueqiuDaily from "./pages/XueqiuDaily";
+import PromptManager from "./pages/PromptManager";
 import { DailyDetail } from "./components/daily/DailyDetail";
+import { XueqiuDetail } from "./components/xueqiu/XueqiuDetail";
 
 const App: React.FC = () => {
   return (
@@ -35,12 +35,12 @@ const App: React.FC = () => {
             <Route path="/ai-timeline" element={<AITimeline />} />
             <Route path="/ai-daily" element={<AIDaily />} />
             <Route path="/ai-daily/:date" element={<DailyDetail />} />
+            <Route path="/xueqiu-daily" element={<XueqiuDaily />} />
+            <Route path="/xueqiu-daily/:date" element={<XueqiuDetail />} />
             <Route path="/ai-model" element={<AIModel />} />
-            <Route path="/ai-tutorial" element={<AITutorial />} />
             <Route path="/ai-navigation" element={<AINavigation />} />
-            <Route path="/ai-prompts" element={<AIPrompts />} />
+            <Route path="/ai-prompts" element={<PromptManager />} />
             <Route path="/ai-benchmark" element={<AIBenchmark />} />
-            <Route path="/knowledge-planet" element={<KnowledgePlanet />} />
           </Routes>
         </main>
       </div>

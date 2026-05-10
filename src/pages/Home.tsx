@@ -8,9 +8,7 @@ import { Link } from "react-router-dom";
 import {
   Brain,
   Newspaper,
-  GraduationCap,
   Compass,
-  Users,
   Sparkles,
   ArrowRight,
   Zap,
@@ -20,8 +18,8 @@ import {
   BookOpen,
   Github,
   Star,
-  Clock,
   Cpu,
+  BarChart3,
 } from "lucide-react";
 
 interface ModuleCard {
@@ -77,32 +75,25 @@ const modules: ModuleCard[] = [
     gradient: "from-green-500 to-emerald-500",
   },
   {
-    title: "AI 教程",
-    description: "系统化 AI 学习教程，从入门到精通",
-    icon: <GraduationCap className="w-8 h-8" />,
-    path: "/ai-tutorial",
-    gradient: "from-purple-500 to-violet-500",
+    title: "雪球日报",
+    description: "每日精选雪球热门个股、板块动向和投资策略",
+    icon: <BarChart3 className="w-8 h-8" />,
+    path: "/xueqiu-daily",
+    gradient: "from-orange-500 to-red-500",
   },
   {
     title: "AI 导航",
     description: "精选 AI 工具和资源导航",
     icon: <Compass className="w-8 h-8" />,
     path: "/ai-navigation",
-    gradient: "from-orange-500 to-red-500",
+    gradient: "from-orange-500 to-amber-500",
   },
   {
-    title: "AI 提示词",
-    description: "精选各种优质的 AI 提示词",
+    title: "Prompt 管理",
+    description: "收藏、管理和发现优质 AI Prompt",
     icon: <MessageSquare className="w-8 h-8" />,
     path: "/ai-prompts",
     gradient: "from-teal-500 to-cyan-500",
-  },
-  {
-    title: "知识星球",
-    description: "加入我们的付费社群，获得更深入的学习指导",
-    icon: <Users className="w-8 h-8" />,
-    path: "/knowledge-planet",
-    gradient: "from-pink-500 to-rose-500",
   },
 ];
 
@@ -152,7 +143,7 @@ const Home: React.FC = () => {
               学习资源，提供互动式学习体验、每日精选资讯、系统化教程和实用工具导航
               <br /> */}
               <span className="inline-flex items-center gap-2 mt-2 text-purple-600 font-semibold">
-                <span>由 code秘密花园 - ConardLi 精心打造</span>
+                <span>AI 学习与投资资讯平台</span>
               </span>
             </p>
 
@@ -166,7 +157,7 @@ const Home: React.FC = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="https://github.com/ConardLi/easy-learn-ai"
+                href="https://github.com/chelseachen007/easy-learn-ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 font-semibold rounded-2xl hover:border-gray-300 hover:shadow-lg hover:scale-105 transition-all duration-300"
@@ -340,7 +331,7 @@ const Home: React.FC = () => {
                 让 AI 学习变得简单有趣，一起探索人工智能的无限可能
               </p>
               <a
-                href="https://github.com/ConardLi/easy-learn-ai"
+                href="https://github.com/chelseachen007/easy-learn-ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
@@ -373,10 +364,10 @@ const Home: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/ai-tutorial"
+                    to="/xueqiu-daily"
                     className="text-gray-400 hover:text-white text-sm transition-colors"
                   >
-                    AI 教程
+                    雪球日报
                   </Link>
                 </li>
                 <li>
@@ -392,18 +383,30 @@ const Home: React.FC = () => {
 
             {/* About */}
             <div className="md:col-span-1">
-              <h3 className="text-white font-semibold mb-4">关于我们</h3>
+              <h3 className="text-white font-semibold mb-4">关于</h3>
               <ul className="space-y-2.5">
-                <li className="text-gray-400 text-sm">
-                  由 code秘密花园 精心打造
-                </li>
-                <li className="text-gray-400 text-sm">作者：ConardLi</li>
                 <li>
                   <Link
-                    to="/knowledge-planet"
+                    to="/ai-prompts"
                     className="text-gray-400 hover:text-white text-sm transition-colors"
                   >
-                    加入知识星球
+                    Prompt 管理
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/ai-model"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    AI 模型
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/ai-benchmark"
+                    className="text-gray-400 hover:text-white text-sm transition-colors"
+                  >
+                    AI 评估
                   </Link>
                 </li>
               </ul>

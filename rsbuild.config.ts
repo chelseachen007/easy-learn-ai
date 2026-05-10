@@ -9,7 +9,7 @@ export default defineConfig({
     },
   },
   html: {
-    title: "Easy AI - code秘密花园",
+    title: "Easy AI",
     favicon: "./public/imgs/icon.ico",
   },
 });

@@ -3,9 +3,9 @@
  * 包含项目logo、导航菜单和社交媒体链接
  */
 
-import React, { useState } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Github, Youtube, MessageCircle, Sparkles } from "lucide-react";
+import { Github } from "lucide-react";
 import { NavigationItem, SocialLink } from "../types";
 
 const navigationItems: NavigationItem[] = [
@@ -16,34 +16,26 @@ const navigationItems: NavigationItem[] = [
   { name: "AI 评估", path: "/ai-benchmark" },
   { name: "AI 发展", path: "/ai-timeline" },
   { name: "AI 日报", path: "/ai-daily" },
-  { name: "AI 教程", path: "/ai-tutorial" },
+  { name: "雪球日报", path: "/xueqiu-daily" },
   { name: "AI 导航", path: "/ai-navigation" },
-  { name: "AI 提示词", path: "/ai-prompts" },
-  { name: "知识星球", path: "/knowledge-planet" },
+  { name: "Prompt 管理", path: "/ai-prompts" },
 ];
 
 const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
     icon: "Github",
-    url: "https://github.com/ConardLi/easy-learn-ai",
+    url: "https://github.com/chelseachen007/easy-learn-ai",
   },
-  { name: "B站", icon: "Youtube", url: "https://space.bilibili.com/474921808" },
-  { name: "微信", icon: "MessageCircle", url: "#" },
 ];
 
 const Header: React.FC = () => {
   const location = useLocation();
-  const [showWeChatQR, setShowWeChatQR] = useState(false);
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Github":
         return <Github className="w-5 h-5" />;
-      case "Youtube":
-        return <Youtube className="w-5 h-5" />;
-      case "MessageCircle":
-        return <MessageCircle className="w-5 h-5" />;
       default:
         return null;
     }
@@ -89,34 +81,9 @@ const Header: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors duration-300 hover:scale-110 transform"
-                  onMouseEnter={() =>
-                    link.name === "微信" && setShowWeChatQR(true)
-                  }
-                  onMouseLeave={() =>
-                    link.name === "微信" && setShowWeChatQR(false)
-                  }
-                  onClick={(e) => link.name === "微信" && e.preventDefault()}
                 >
                   {getIcon(link.icon)}
                 </a>
-
-                {/* 微信二维码悬浮显示 */}
-                {link.name === "微信" && showWeChatQR && (
-                  <div className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-max">
-                    <div className="flex flex-col items-center p-4">
-                      <img
-                        src="/imgs/gzh.jpg"
-                        alt="微信公众号二维码"
-                        className="w-40 h-40 object-cover rounded-lg shadow-sm"
-                      />
-                      <p className="text-sm text-gray-600 mt-3 text-center whitespace-nowrap">
-                        扫码关注微信公众号
-                      </p>
-                    </div>
-                    {/* 小箭头 */}
-                    <div className="absolute -top-1 right-6 w-2 h-2 bg-white border-l border-t border-gray-200 transform rotate-45"></div>
-                  </div>
-                )}
               </div>
             ))}
           </div>
